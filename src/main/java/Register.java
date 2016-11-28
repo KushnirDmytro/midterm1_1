@@ -1,4 +1,7 @@
+import com.sun.scenario.effect.impl.state.LinearConvolveRenderState;
+
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -6,14 +9,47 @@ import java.util.Observer;
  * Created by D1mD1m on 11/28/2016.
  */
 public class Register{
-
+    /**
+     * singletone class woth double functions: contains banned register, performs verification, creates new Passes
+     */
     ArrayList<String> blockedRegister;
+
+    private Register() {
+        blockedRegister = new ArrayList<String>();
+    }
 
     private static Register ourInstance = new Register();
 
     public static Register getInstance() {
         return ourInstance;
     }
+
+
+
+    public static ISkyPass stPassesFactory(SkyPassSpec spec){
+        if (spec.restrictionType == RestrictionType.UNLIMITED){
+            return new UnlimitedPass((UnlimitedSkyPassSpec) spec);
+        }
+        else if (spec.restrictionType == RestrictionType.DAYSLIMITED){
+            if (spec.passType == SkyPassTypes.WEEKEND){
+                return new LimitedForDaysWeekendPass((SpecDaysLimited) spec);
+            }
+            if (spec.passType == SkyPassTypes.WORKDAYS){
+                return new LimitedForDaysWorkdayPass((SpecDaysLimited) spec);
+            }
+        }
+        else if (spec.restrictionType == RestrictionType.DRIVESLIMITED){
+            if (spec.passType == SkyPassTypes.WEEKEND){
+                return new LimitedForDrivesWeekendPass((SpecDrivesLimited) spec);
+            }
+            if (spec.passType == SkyPassTypes.WORKDAYS){
+                return new LimitedForDrivesWorkdayPass((SpecDrivesLimited) spec);
+            }
+        }
+        throw new InputMismatchException("spec type for SkyPass is unrecognised");
+    }
+
+
 
     class IDGenerator{
         Integer lastID = 00000000; //just for case
@@ -42,13 +78,6 @@ public class Register{
         }
     }
 
-    private Register() {
-        public ISkyPass passesFactory(SkyPassSpec spec){
-        }
-
-
-
-    }
 
     public void verify(BanningRequest thisRequest){
         if (blockedRegister.contains(thisRequest.getID())){

@@ -15,6 +15,11 @@ public class Turnique {
         this.thisDay = validDate;
     }
 
+    public void updateRegisterLink(Register newRegister) {
+        this.ourRegister = newRegister;
+    }
+
+
     class Validator {
         public Boolean validate(ISkyPass pass) throws InputMismatchException{
             BanningRequest doesBanned;
