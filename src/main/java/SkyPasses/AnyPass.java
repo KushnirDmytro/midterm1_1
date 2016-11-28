@@ -1,4 +1,9 @@
-import java.util.Date;
+package SkyPasses;
+
+import EnumsPass.RestrictionType;
+import EnumsPass.SkyPassTypes;
+import InterfacesPass.ISkyPass;
+import SpecsPass.SkyPassSpec;
 
 /**
  * Created by D1mD1m on 11/28/2016.

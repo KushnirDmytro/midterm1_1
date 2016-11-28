@@ -1,8 +1,14 @@
+package SkyPasses;
+
+import EnumsPass.DrivesAmountType;
+import InterfacesPass.ILimitedForDrives;
+import SpecsPass.SpecDrivesLimited;
+
 /**
  * Created by D1mD1m on 11/28/2016.
  */
-public  class LimitedForDrivesPass extends LimitedPass implements ILimitedForDrives{
-    // contains SpecDrivesLimited spec;
+public  class LimitedForDrivesPass extends LimitedPass implements ILimitedForDrives {
+    // contains SpecsPass.SpecDrivesLimited spec;
 
     public void removeOneDrive(){
         if ( ((SpecDrivesLimited)this.spec).drivesLeft > 0 ){

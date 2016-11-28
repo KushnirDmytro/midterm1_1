@@ -1,8 +1,12 @@
+package SkyPasses;
+
+import SpecsPass.UnlimitedSkyPassSpec;
+
 /**
  * Created by D1mD1m on 11/28/2016.
  */
 public class UnlimitedPass extends AnyPass{
-    UnlimitedPass(UnlimitedSkyPassSpec spec){
+    public UnlimitedPass(UnlimitedSkyPassSpec spec){
         this.spec = spec;
     }
 }

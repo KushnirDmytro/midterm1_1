@@ -1,6 +1,8 @@
-import com.sun.org.apache.xpath.internal.operations.Bool;
+package InterfacesPass;
 
-import java.util.Date;
+import EnumsPass.RestrictionType;
+import EnumsPass.SkyPassTypes;
+import SpecsPass.SkyPassSpec;
 
 /**
  * Created by D1mD1m on 11/28/2016.

@@ -1,3 +1,7 @@
+package InterfacesPass;
+
+import EnumsPass.DaysAmountType;
+
 import java.util.Date;
 
 /**

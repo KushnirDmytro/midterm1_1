@@ -1,3 +1,5 @@
+import SpecsPass.SkyPassSpec;
+
 import java.sql.Time;
 import java.util.Date;
 

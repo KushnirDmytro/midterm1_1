@@ -1,3 +1,8 @@
+package SpecsPass;
+
+import EnumsPass.RestrictionType;
+import EnumsPass.SkyPassTypes;
+
 import java.util.Date;
 
 /**
