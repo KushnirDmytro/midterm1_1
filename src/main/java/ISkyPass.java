@@ -9,4 +9,5 @@ public interface ISkyPass {
     String getID();
     SkyPassTypes getType();
     RestrictionType getRestrictionType();
+    SkyPassSpec getSpec();
 }

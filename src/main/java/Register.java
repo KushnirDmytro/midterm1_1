@@ -1,9 +1,7 @@
 import com.sun.scenario.effect.impl.state.LinearConvolveRenderState;
 
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Observable;
-import java.util.Observer;
+import java.sql.Time;
+import java.util.*;
 
 /**
  * Created by D1mD1m on 11/28/2016.
@@ -13,8 +11,11 @@ public class Register{
      * singletone class woth double functions: contains banned register, performs verification, creates new Passes
      */
     ArrayList<String> blockedRegister;
+    private ArrayList<LogRecord> SkyPassLog;
+    Logger logger;
 
     private Register() {
+        this.logger = new Logger();
         blockedRegister = new ArrayList<String>();
     }
 
@@ -78,6 +79,18 @@ public class Register{
         }
     }
 
+
+    public class Logger{
+
+        void addLog(LogRecord record){
+            SkyPassLog.add(record);
+        }
+
+
+        ArrayList<LogRecord> getRawLogs(){
+            return SkyPassLog;
+        }
+    }
 
     public void verify(BanningRequest thisRequest){
         if (blockedRegister.contains(thisRequest.getID())){

@@ -17,4 +17,8 @@ public abstract class AnyPass implements ISkyPass {
     public RestrictionType getRestrictionType() {
         return this.spec.restrictionType;
     }
+
+    public SkyPassSpec getSpec(){
+        return this.getSpec();
+    }
 }
