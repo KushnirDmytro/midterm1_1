@@ -8,6 +8,5 @@ import java.util.Date;
 public interface ISkyPass {
     String getID();
     SkyPassTypes getType();
-    Date getExpire();
     RestrictionType getRestrictionType();
 }

@@ -8,5 +8,4 @@ public abstract class SkyPassSpec {
     public String ID;
     public SkyPassTypes passType;
     public RestrictionType restrictionType;
-    public Date expireDate;
 }

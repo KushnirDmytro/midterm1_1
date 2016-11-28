@@ -14,10 +14,6 @@ public abstract class AnyPass implements ISkyPass {
         return this.spec.passType;
     }
 
-    public Date getExpire() {
-        return this.spec.expireDate;
-    }
-
     public RestrictionType getRestrictionType() {
         return this.spec.restrictionType;
     }
